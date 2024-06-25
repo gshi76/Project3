@@ -1,12 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Restaurant Inspections</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <title>Restaurant Inspection</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
     #map {
       height: 500px;
       width: 100%;
@@ -22,20 +37,27 @@
       margin-top: 20px;
       display: none; /* Initially hide violations summary */
     }
+    #bar-chart, #map, #violations-summary {
+      max-width: 1000px;
+      width: 100%;
+    }
+    #riskPieChart {
+      display: flex;
+      justify-content: center;
+    }
   </style>
 </head>
 <body>
   <h1>Restaurant Inspections</h1>
-  <label for="chain-dropdown">Select Chain:</label>
   <select id="chain-dropdown"></select>
   <div id="bar-chart"></div>
-  <div id="map"></div>
-  <div id="violations-summary">
-    <h2>Violations Summary</h2>
-    <ul id="violations-list"></ul>
-  </div>
+  <div id="riskPieChart" style="width: 600px; height: 600px; margin: auto;"></div>
+  <div id="map" style="height: 400px;"></div>
+  <ul id="violations-list"></ul>
+  <div id="violations-summary" style="display:none;">Violations Summary:</div>
+
   <script>
   </script>
-    <script src="js/app.js" defer></script>
+  <script src="js/app.js" defer></script>
 </body>
 </html>
